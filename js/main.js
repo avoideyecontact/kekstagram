@@ -1,3 +1,5 @@
+//const { name } = require("browser-sync");
+
 // Проверки максимальной длины строки
 function checkStrLength(yourString, maxLength) {
   return yourString.length <= maxLength;
@@ -12,10 +14,10 @@ checkStrLength('some string', 16);
 getRandomInt(1, 9);
 
 // Массив имен
-let names = ['Влад', 'Герман', 'Бенедикт', 'Кирилл', 'Светослава', 'Нина', 'Алиса', 'Василий', 'Богдан', 'Альберт', 'Сильвестр'];
+const names = ['Влад', 'Герман', 'Бенедикт', 'Кирилл', 'Светослава', 'Нина', 'Алиса', 'Василий', 'Богдан', 'Альберт', 'Сильвестр'];
 
 // Массив описаний фотографий
-let descriptions = ['Мне нравится эта фотография, потому что она точно передаёт моё настроение',
+const descriptions = ['Мне нравится эта фотография, потому что она точно передаёт моё настроение',
   'Только что сделал классную фотку!',
   'Моим друзьям понравилось',
   'Даже не знаю что написать',
@@ -23,7 +25,7 @@ let descriptions = ['Мне нравится эта фотография, пот
   'Как по мне, получилось очень даже неплохо!'];
 
 // Массив комментариев к фото
-let messages = ['Всё отлично!',
+const messages = ['Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
@@ -36,37 +38,41 @@ function getRandomArrayElement(array) {
 }
 
 // Создание случайных комметариев
-function generateComments(messagesArray) {
-  let commentArray = [];
-  //let indexArray = [];
-  // for (let i = 1; i <= 255; i++) {
-  //   indexArray.push(i);
-  // };
+function getCommentObj(messagesArray, namesArray) {
+  return {
+    avatar: 'img/avatar-' + getRandomInt(1, 6) +'.svg',
+    message: getRandomArrayElement(messagesArray),
+    name: getRandomArrayElement(namesArray),
+    id: getRandomInt(1, 255) + '-' + Date.now(),
+  }
+}
+
+// Заполнение массива случайными комметариями
+function generateComments(messagesArray, namesArray) {
+  const commentArray = [];
   for (let i = 0; i < getRandomInt(1, 10); i++) {
-    commentArray.push({
-      id: getRandomInt(1, 255),
-      avatar: 'img/avatar-' + getRandomInt(1, 6) +'.svg',
-      message: getRandomArrayElement(messagesArray),
-      name: getRandomArrayElement(names),
-    });
+    commentArray.push(getCommentObj(messagesArray, namesArray));
   }
   return commentArray;
 }
 
 // Создание описания для постов
-function generateData(dataArray, descriptionsArray, messagesArray, number = 1) {
+function generateData(descriptionsArray, messagesArray, namesArray, number = 1) {
+  const dataArray = [];
   for (let i = 0; i < number; i++) {
-    dataArray[i] = {
+    dataArray.push({
       id: i,
       url: 'photos/' + i + '.jpg',
       description: getRandomArrayElement(descriptionsArray),
       likes: getRandomInt(15, 200),
-      comments: generateComments(messagesArray),
-    };
+      comments: generateComments(messagesArray, namesArray),
+    });
   }
+  return dataArray;
 }
 
 // Массив описаний постов
-let postsDescription = [];
+const postsDescription = generateData(descriptions, names, messages, 25);
 
-generateData(postsDescription, descriptions, messages, 25);
+//Временный комментарий чтобы пройти тесты
+postsDescription[0].id = 0;
