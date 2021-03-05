@@ -16,4 +16,6 @@ function getRandomArrayElement(array) {
   return array[getRandomInt(0, array.length - 1)];
 }
 
-export { getRandomInt, getRandomArrayElement };
+let temp = getRandomInt(1, 10);
+
+export { getRandomInt, getRandomArrayElement, temp };
