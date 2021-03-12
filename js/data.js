@@ -32,7 +32,7 @@ function getCommentObj(messagesArray, namesArray) {
 // Заполнение массива случайными комметариями
 function generateComments(messagesArray, namesArray) {
   const commentArray = [];
-  for (let i = 0; i < util.getRandomInt(1, 10); i++) {
+  for (let i = 0; i < util.getRandomInt(1, 25); i++) {
     commentArray.push(getCommentObj(messagesArray, namesArray));
   }
   return commentArray;
@@ -44,7 +44,7 @@ function generateData(descriptionsArray, messagesArray, namesArray, number = 1) 
   for (let i = 0; i < number; i++) {
     dataArray.push({
       id: i,
-      url: 'photos/' + i + '.jpg',
+      url: 'photos/' + (i+1) + '.jpg',
       description: util.getRandomArrayElement(descriptionsArray),
       likes: util.getRandomInt(15, 200),
       comments: generateComments(messagesArray, namesArray),
@@ -55,8 +55,5 @@ function generateData(descriptionsArray, messagesArray, namesArray, number = 1) 
 
 // Массив описаний постов
 const postsDescription = generateData(descriptions, names, messages, 25);
-
-//Временный комментарий чтобы пройти тесты
-postsDescription[0].id = 0;
 
 export { postsDescription };
