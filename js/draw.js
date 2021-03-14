@@ -17,11 +17,10 @@ function getPhotoTemplate(photoObject) {
 function drawPictures(photosData) {
   const fragment = document.createDocumentFragment(); // Создаем фрагмент для дальнейшего использования
 
-  for (let i = 0; i < photosData.length; i++) {
-    const element = getPhotoTemplate(photosData[i]);
-
+  photosData.forEach( function(photoObject) {
+    const element = getPhotoTemplate(photoObject);
     fragment.appendChild(element); // Добавляем во фрагмент элемент
-  }
+  });
 
   pictures.appendChild(fragment); // Добавляем фрагмент на страницу
 }
