@@ -1,9 +1,8 @@
 import * as scale from './scale.js';
 
-const effectArray = document.querySelectorAll('.effects__item');
-
 let imgEffect = '';
 
+const sliderBar = document.querySelector('.img-upload__effect-level');
 const sliderElement = document.querySelector('.effect-level__slider');
 const valueElement = document.querySelector('.effect-level__value');
 
@@ -18,41 +17,41 @@ noUiSlider.create(sliderElement, {
   connect: 'lower',
 });
 
-for (let i = 0; i < effectArray.length; i++) {
-  const effectRadio = effectArray[i].querySelector('.effects__radio');
-  effectRadio.addEventListener('click', function() {
-    scale.imgPreview.className = scale.imgPreview.className.split(' ')[0];
-    imgEffect = effectArray[i].querySelector('.effects__preview').className.split(' ');
-    imgEffect = imgEffect[imgEffect.length - 1];
-    scale.imgPreview.style.filter = '';
-    scale.imgPreview.classList.add( imgEffect );
+const effectsElement = document.querySelector('.effects__list');
 
-    if (imgEffect === 'effects__preview--none') {
-      sliderElement.classList.add('visually-hidden');
+const onElementChange = function(evt) {
+  if (evt.target.matches('input[type="radio"]')) {
+    imgEffect = evt.target.value;
+    scale.imgPreview.className = 'img-upload__preview';
+    scale.imgPreview.classList.add( `effects__preview--${imgEffect}`);
+
+    if (imgEffect === 'none') {
+      sliderBar.classList.add('hidden');
     }
     else {
-      sliderElement.classList.remove('visually-hidden');
+      sliderBar.classList.remove('hidden');
     }
-
     sliderElement.noUiSlider.reset();
-  });
-}
+  }
+};
+
+effectsElement.addEventListener('change', onElementChange);
 
 sliderElement.noUiSlider.on('update', (___, handle, unencoded) => {
   valueElement.value = unencoded[handle];
-  if (imgEffect === 'effects__preview--chrome') {
+  if (imgEffect === 'chrome') {
     scale.imgPreview.style.filter = 'grayscale(' + Math.floor(valueElement.value / 10) * 0.1 + ')';
   }
-  if (imgEffect === 'effects__preview--sepia') {
+  if (imgEffect === 'sepia') {
     scale.imgPreview.style.filter = 'sepia(' + Math.floor(valueElement.value / 10) * 0.1 + ')';
   }
-  if (imgEffect === 'effects__preview--marvin') {
+  if (imgEffect === 'marvin') {
     scale.imgPreview.style.filter = 'invert(' + valueElement.value + '%)';
   }
-  if (imgEffect === 'effects__preview--phobos') {
+  if (imgEffect === 'phobos') {
     scale.imgPreview.style.filter = 'blur(' + Math.floor(valueElement.value * 0.3) * 0.1 + 'px)';
   }
-  if (imgEffect === 'effects__preview--heat') {
+  if (imgEffect === 'heat') {
     scale.imgPreview.style.filter = 'brightness(' + Math.floor(valueElement.value * 0.3) * 0.1 + ')';
   }
 });
