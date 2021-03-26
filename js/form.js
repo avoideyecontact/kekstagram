@@ -2,7 +2,7 @@ import * as upload from './upload.js';
 const formElement = document.querySelector('.img-upload__form');
 const templateError = document.querySelector('#error').content;
 const formError = templateError.querySelector('.error');
-const formErrorButton = templateError.querySelector('.error__button');
+// const formErrorButton = templateError.querySelector('.error__button');
 const htmlMain = document.querySelector('main');
 
 const onUploadError = function() {
