@@ -32,3 +32,5 @@ const onUploadFillChange = function() {
 }
 
 uploadFile.addEventListener('change', onUploadFillChange);
+
+export { KEY_CODE_ESC, uploadFile, uploadCancel, editForm, body, onUploadCancelClick, onDocumentKeyDown }

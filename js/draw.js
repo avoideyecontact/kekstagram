@@ -1,5 +1,3 @@
-import * as data from './data.js';
-
 const templatePicture = document.querySelector('#picture').content; // Находим template картинки
 const template = templatePicture.querySelector('.picture'); // Находим "внутренности" шаблона
 
@@ -25,4 +23,4 @@ function drawPictures(photosData) {
   pictures.appendChild(fragment); // Добавляем фрагмент на страницу
 }
 
-drawPictures(data.postsDescription)
+export { drawPictures }
