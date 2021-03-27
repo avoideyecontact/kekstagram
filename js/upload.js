@@ -6,22 +6,22 @@ const KEY_CODE_ESC = 27;
 
 const uploadCancel = document.querySelector('#upload-cancel');
 
-const onDocumentKeyDown = function(evt) {
-  if (evt.keyCode === KEY_CODE_ESC) {
-    editForm.classList.add('hidden');
-    body.classList.remove('modal-open');
-    uploadFile.value = '';
-    document.removeEventListener('keydown', onDocumentKeyDown);
-    uploadCancel.removeEventListener('click', onUploadCancelClick);
-  }
-}
-
-const onUploadCancelClick = function() {
+const closeForm = function() {
   editForm.classList.add('hidden');
   body.classList.remove('modal-open');
   uploadFile.value = '';
   document.removeEventListener('keydown', onDocumentKeyDown);
   uploadCancel.removeEventListener('click', onUploadCancelClick);
+}
+
+const onDocumentKeyDown = function(evt) {
+  if (evt.keyCode === KEY_CODE_ESC) {
+    closeForm();
+  }
+}
+
+const onUploadCancelClick = function() {
+  closeForm();
 }
 
 const onUploadFillChange = function() {
@@ -33,4 +33,4 @@ const onUploadFillChange = function() {
 
 uploadFile.addEventListener('change', onUploadFillChange);
 
-export { KEY_CODE_ESC, uploadFile, uploadCancel, editForm, body, onUploadCancelClick, onDocumentKeyDown }
+export { KEY_CODE_ESC, uploadFile, uploadCancel, editForm, body, onUploadCancelClick, onDocumentKeyDown, closeForm }
