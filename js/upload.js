@@ -1,3 +1,6 @@
+import { sliderElement, sliderBar } from './effect.js';
+import { formElement } from './form.js';
+import { imgPreview } from './scale.js';
 const uploadFile = document.querySelector('#upload-file');
 const editForm = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
@@ -10,6 +13,13 @@ const closeForm = function() {
   editForm.classList.add('hidden');
   body.classList.remove('modal-open');
   uploadFile.value = '';
+
+  sliderElement.noUiSlider.reset();
+  sliderBar.classList.add('hidden');
+  formElement.reset();
+  imgPreview.className = 'img-upload__preview';
+  imgPreview.style.filter = '';
+
   document.removeEventListener('keydown', onDocumentKeyDown);
   uploadCancel.removeEventListener('click', onUploadCancelClick);
 }

@@ -55,3 +55,5 @@ sliderElement.noUiSlider.on('update', (___, handle, unencoded) => {
     scale.imgPreview.style.filter = 'brightness(' + Math.floor(valueElement.value * 0.3) * 0.1 + ')';
   }
 });
+
+export { sliderElement, sliderBar };

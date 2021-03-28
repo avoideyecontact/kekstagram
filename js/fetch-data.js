@@ -22,18 +22,3 @@ const createFetch = (onSuccess, onError) => () => {
 };
 
 export { createFetch }
-
-// От Юрий Белобородов всем:  06:16 PM
-//   fetch(
-//     'https://22.javascript.pages.academy/kekstagram',
-//     {
-//       method: 'POST',
-//       body,
-//     },
-//   ).then((response) => {
-//    if (response.ok) {
-//        onSuccess()
-//    } else {
-//        onError()
-//    }
-// })

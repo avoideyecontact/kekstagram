@@ -51,9 +51,6 @@ const closeFormErrorClickOutside = function(evt) {
   }
 }
 
-
-
-
 // Функция закрытия окошка успешной отправки
 const closeFormSuccess = function() {
   formSuccess.classList.add('hidden');
@@ -65,7 +62,7 @@ const closeFormSuccess = function() {
 // Функция выполняющаяся при успешной отправке формы
 const onUploadSuccess = function() {
   window.console.log('good');
-  formElement.reset();
+
   upload.closeForm();
 
   formSuccess.classList.remove('hidden');
@@ -97,14 +94,6 @@ const closeFormSuccessClickOutside = function(evt) {
   }
 }
 
-
-
-
-
-
-
-
-
 // Функция отправки формы
 const sendFormData = function(formData, onSuccess, onError) {
   fetch(
@@ -135,3 +124,5 @@ formElement.addEventListener('submit', function(evt){
     onUploadError, // Не забыть поменять местами
   );
 });
+
+export { formElement }
