@@ -35,7 +35,7 @@ const onDocumentKeyDown = function(evt) {
 //   });
 
 //   hashtagInput.addEventListener('blur', () => {
-//   document.addEventListener('keydown', onModalRedactorEscKeydown)
+//   document.addEventListener('keydown', onDocumentKeyDown)
 //   });
 
 //   description.addEventListener('focus', () => {
