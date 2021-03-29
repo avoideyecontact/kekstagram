@@ -1,6 +1,7 @@
 import { sliderElement, sliderBar } from './effect.js';
 import { formElement } from './form.js';
 import { imgPreview } from './scale.js';
+import { fieldHashElement } from './hash-validation.js';
 const uploadFile = document.querySelector('#upload-file');
 const editForm = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
@@ -19,6 +20,9 @@ const closeForm = function() {
   formElement.reset();
   imgPreview.className = 'img-upload__preview';
   imgPreview.style.filter = '';
+  imgPreview.style.transform = '';
+  fieldHashElement.classList.remove('error-validation');
+  fieldHashElement.setCustomValidity('')
 
   document.removeEventListener('keydown', onDocumentKeyDown);
   uploadCancel.removeEventListener('click', onUploadCancelClick);
