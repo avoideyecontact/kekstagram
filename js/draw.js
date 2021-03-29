@@ -1,6 +1,8 @@
 const templatePicture = document.querySelector('#picture').content; // Находим template картинки
 const template = templatePicture.querySelector('.picture'); // Находим "внутренности" шаблона
 
+let arrayOfPhotos = [];
+
 const pictures = document.querySelector('.pictures'); // Находим блок картинок
 
 function getPhotoTemplate(photoObject) {
@@ -20,7 +22,8 @@ function drawPictures(photosData) {
     fragment.appendChild(element); // Добавляем во фрагмент элемент
   });
 
+  arrayOfPhotos = [...photosData];
   pictures.appendChild(fragment); // Добавляем фрагмент на страницу
 }
 
-export { drawPictures }
+export { drawPictures, arrayOfPhotos }
