@@ -8,6 +8,8 @@ import * as fetch_data from './fetch-data.js';
 import * as form from './form.js';
 import * as hash from './hash-validation.js';
 import * as photo from './photo.js';
+import * as filters from './filters.js';
+// import * as bigpic from './big-pic.js';
 
 // Временный код чтобы пройти тесты
 window.console.log(data.postsDescription);
@@ -20,3 +22,5 @@ window.console.log(fetch_data);
 window.console.log(form);
 window.console.log(hash);
 window.console.log(photo);
+window.console.log(filters);
+// window.console.log(bigpic);

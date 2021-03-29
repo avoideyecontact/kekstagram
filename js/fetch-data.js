@@ -1,3 +1,5 @@
+import { showImgFilterElement } from './filters.js';
+
 const createFetch = (onSuccess, onError) => () => {
   return fetch(
     'https://22.javascript.pages.academy/kekstagram/data',
@@ -18,6 +20,9 @@ const createFetch = (onSuccess, onError) => () => {
     })
     .catch((err) => {
       onError(err);
+    })
+    .then(() => {
+      showImgFilterElement();
     });
 };
 

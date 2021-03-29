@@ -27,6 +27,7 @@ const onElementChange = function(evt) {
 
     if (imgEffect === 'none') {
       sliderBar.classList.add('hidden');
+      scale.imgPreview.style.filter = '';
     }
     else {
       sliderBar.classList.remove('hidden');
