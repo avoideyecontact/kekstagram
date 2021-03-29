@@ -13,7 +13,7 @@ function getRandomArrayElement(array) {
   return array[getRandomInt(0, array.length - 1)];
 }
 
-export { getRandomInt, getRandomArrayElement };
+export { getRandomInt, getRandomArrayElement, checkStrLength };
 
 //Временный код чтобы пройти тесты
 window.console.log(checkStrLength('abc', 15));
