@@ -30,6 +30,22 @@ const onDocumentKeyDown = function(evt) {
   }
 }
 
+// hashtagInput.addEventListener('focus', () => {
+//   document.removeEventListener('keydown', ф-я onDocumentKeyDown )
+//   });
+
+//   hashtagInput.addEventListener('blur', () => {
+//   document.addEventListener('keydown', onModalRedactorEscKeydown)
+//   });
+
+//   description.addEventListener('focus', () => {
+//   document.removeEventListener('keydown', onModalRedactorEscKeydown)
+//   });
+
+//   description.addEventListener('blur', () => {
+//   document.addEventListener('keydown', onModalRedactorEscKeydown)
+//   });
+
 const onUploadCancelClick = function() {
   closeForm();
 }
