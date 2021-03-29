@@ -15,8 +15,9 @@ const createFetch = (onSuccess, onError) => () => {
 
       throw new Error(`${response.status} ${response.statusText}`);
     })
-    .then((json) => {
-      onSuccess(json);
+    .then((data) => {
+      window.console.log(data);
+      // onSuccess(data);
     })
     .catch((err) => {
       onError(err);
@@ -25,5 +26,7 @@ const createFetch = (onSuccess, onError) => () => {
       showImgFilterElement();
     });
 };
+
+createFetch();
 
 export { createFetch }
