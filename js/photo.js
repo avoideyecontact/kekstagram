@@ -1,8 +1,8 @@
 import { imgPreview } from './scale.js';
 
-const uploadFile = document.querySelector('.img-upload__input');
-
 const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
+
+const uploadFile = document.querySelector('.img-upload__input');
 
 uploadFile.addEventListener('change', () => {
   const file = uploadFile.files[0];
