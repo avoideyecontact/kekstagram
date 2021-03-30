@@ -30,7 +30,7 @@ const getRandomElements = (array) => {
 
   let results = [];
 
-  while(results.length < 10){
+  while(results.length < RANDOM_PICS_NUMBER){
     let randomElement = array[getRandomInt(0, array.length - 1)];
 
     if (!results.includes(randomElement)){
