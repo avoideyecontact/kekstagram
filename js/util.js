@@ -18,6 +18,3 @@ const getRandomArrayElement = (array) => {
 }
 
 export { getRandomInt, getRandomArrayElement, checkStrLength, isEscEvent };
-
-//Временный код чтобы пройти тесты
-window.console.log(checkStrLength('abc', 15));

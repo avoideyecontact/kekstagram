@@ -1,5 +1,18 @@
 import { showImgFilterElement } from './filters.js';
 
+const modalError = document.querySelector('.modal__error');
+const imgUploadElement = document.querySelector('.img-upload');
+
+const openPopupOnError = () => {
+  modalError.classList.remove('hidden');
+  imgUploadElement.classList.add('hidden');
+}
+
+const closePopupOnError = () => {
+  modalError.classList.add('hidden');
+  imgUploadElement.classList.remove('hidden');
+}
+
 export const createFetch = (onSuccess, onError) => {
   return fetch(
     'https://22.javascript.pages.academy/kekstagram/data',
@@ -21,3 +34,5 @@ export const createFetch = (onSuccess, onError) => {
       showImgFilterElement();
     });
 };
+
+export { openPopupOnError, closePopupOnError }

@@ -38,7 +38,7 @@ const onDocumentKeyDown = (evt) => {
 
 fieldHashElement.addEventListener('focus', () => {
   document.removeEventListener('keydown', onDocumentKeyDown)
-  });
+});
 
 fieldHashElement.addEventListener('blur', () => {
   document.addEventListener('keydown', onDocumentKeyDown)

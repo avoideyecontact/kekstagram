@@ -1420,3 +1420,13 @@ main {
 .error-validation {
   outline: 1px solid red;
 }
+
+.modal__error {
+  margin: 50px auto;
+  width: 450px;
+  padding: 15px 25px;
+  text-align: center;
+  background-color: #8a7d2d;
+  border: 2px solid #3c3614;
+  border-radius: 5px;
+}

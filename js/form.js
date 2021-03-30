@@ -125,4 +125,4 @@ formElement.addEventListener('submit', (evt) => {
   );
 });
 
-export { formElement }
+export { formElement, htmlMain }
