@@ -5,7 +5,7 @@ let arrayOfPhotos = [];
 
 const pictures = document.querySelector('.pictures'); // Находим блок картинок
 
-function getPhotoTemplate(photoObject) {
+const getPhotoTemplate = (photoObject) => {
   const element = template.cloneNode(true); // Копируем внутренности шаблона
   element.querySelector('img').src = photoObject.url; // Задаем адрес картинке
   element.querySelector('.picture__comments').textContent = photoObject.comments.length; // Задаем количество комментариев
@@ -14,10 +14,10 @@ function getPhotoTemplate(photoObject) {
   return element;
 }
 
-function drawPictures(photosData) {
+const drawPictures = (photosData) => {
   const fragment = document.createDocumentFragment(); // Создаем фрагмент для дальнейшего использования
 
-  photosData.forEach( function(photoObject) {
+  photosData.forEach( (photoObject) => {
     const element = getPhotoTemplate(photoObject);
     fragment.appendChild(element); // Добавляем во фрагмент элемент
   });

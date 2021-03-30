@@ -11,7 +11,7 @@ const formSuccess = templateSuccess.querySelector('.success');
 const formSuccessButton = templateSuccess.querySelector('.success__button');
 
 // Функция закрытия окошка ошибки
-const closeFormError = function() {
+const closeFormError = () => {
   formError.classList.add('hidden');
   document.removeEventListener('click', closeFormErrorClickOutside);
   document.removeEventListener('keydown', closeFormErrorOnKeyDown);
@@ -19,7 +19,7 @@ const closeFormError = function() {
 }
 
 // Функция выполняющаяся при ошибке отправки формы
-const onUploadError = function() {
+const onUploadError = () => {
   window.console.log('bad');
 
   formError.classList.remove('hidden');
@@ -33,26 +33,26 @@ const onUploadError = function() {
 }
 
 // При нажатии на ESC
-const closeFormErrorOnKeyDown = function(evt) {
+const closeFormErrorOnKeyDown = (evt) => {
   if (evt.keyCode === upload.KEY_CODE_ESC) {
     closeFormError();
   }
 }
 
 // При нажатии на кнопку
-const closeFormErrorButtonClick = function() {
+const closeFormErrorButtonClick = () => {
   closeFormError();
 }
 
 // При нажатии на область вне окна
-const closeFormErrorClickOutside = function(evt) {
+const closeFormErrorClickOutside = (evt) => {
   if (evt.target === formError) {
     closeFormError();
   }
 }
 
 // Функция закрытия окошка успешной отправки
-const closeFormSuccess = function() {
+const closeFormSuccess = () => {
   formSuccess.classList.add('hidden');
   document.removeEventListener('click', closeFormSuccessClickOutside);
   document.removeEventListener('keydown', closeFormSuccessOnKeyDown);
@@ -60,7 +60,7 @@ const closeFormSuccess = function() {
 }
 
 // Функция выполняющаяся при успешной отправке формы
-const onUploadSuccess = function() {
+const onUploadSuccess = () => {
   window.console.log('good');
 
   upload.closeForm();
@@ -76,26 +76,26 @@ const onUploadSuccess = function() {
 }
 
 // При нажатии на ESC
-const closeFormSuccessOnKeyDown = function(evt) {
+const closeFormSuccessOnKeyDown = (evt) => {
   if (evt.keyCode === upload.KEY_CODE_ESC) {
     closeFormSuccess();
   }
 }
 
 // При нажатии на кнопку
-const closeFormSuccessButtonClick = function() {
+const closeFormSuccessButtonClick = () => {
   closeFormSuccess();
 }
 
 // При нажатии на область вне окна
-const closeFormSuccessClickOutside = function(evt) {
+const closeFormSuccessClickOutside = (evt) => {
   if (evt.target === formSuccess) {
     closeFormSuccess();
   }
 }
 
 // Функция отправки формы
-const sendFormData = function(formData, onSuccess, onError) {
+const sendFormData = (formData, onSuccess, onError) => {
   fetch(
     'https://22.javascript.pages.academy/kekstagram',
     {
@@ -114,7 +114,7 @@ const sendFormData = function(formData, onSuccess, onError) {
 }
 
 // Добавляем слушатель отправки формы
-formElement.addEventListener('submit', function(evt){
+formElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
   const formData = new FormData(evt.target);
