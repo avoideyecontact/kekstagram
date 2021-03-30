@@ -10,7 +10,7 @@ const stepValue = 25;
 
 let imgScale = 100;
 
-btnSmaller.addEventListener('click', function() {
+btnSmaller.addEventListener('click', () => {
   if (imgScale >= minValue + stepValue) {
     imgScale -= stepValue;
     scaleValue.value = imgScale + '%';
@@ -18,7 +18,7 @@ btnSmaller.addEventListener('click', function() {
   }
 })
 
-btnBigger.addEventListener('click', function() {
+btnBigger.addEventListener('click', () => {
   if (imgScale <= maxValue - stepValue) {
     imgScale += stepValue;
     scaleValue.value = imgScale + '%';

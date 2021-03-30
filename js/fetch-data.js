@@ -1,12 +1,21 @@
 import { showImgFilterElement } from './filters.js';
 
-const createFetch = (onSuccess, onError) => () => {
+const modalError = document.querySelector('.modal__error');
+const imgUploadElement = document.querySelector('.img-upload');
+
+const openPopupOnError = () => {
+  modalError.classList.remove('hidden');
+  imgUploadElement.classList.add('hidden');
+}
+
+const closePopupOnError = () => {
+  modalError.classList.add('hidden');
+  imgUploadElement.classList.remove('hidden');
+}
+
+export const createFetch = (onSuccess, onError) => {
   return fetch(
     'https://22.javascript.pages.academy/kekstagram/data',
-    {
-      method: 'GET',
-      credentials: 'same-origin',
-    },
   )
     .then((response) => {
       if (response.ok) {
@@ -16,8 +25,7 @@ const createFetch = (onSuccess, onError) => () => {
       throw new Error(`${response.status} ${response.statusText}`);
     })
     .then((data) => {
-      window.console.log(data);
-      // onSuccess(data);
+      onSuccess(data);
     })
     .catch((err) => {
       onError(err);
@@ -27,6 +35,4 @@ const createFetch = (onSuccess, onError) => () => {
     });
 };
 
-createFetch();
-
-export { createFetch }
+export { openPopupOnError, closePopupOnError }
