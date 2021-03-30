@@ -56,7 +56,6 @@ const fillBigPucture = (object) => {
     return createComment(currentValue)
   });
 
-  //Загрузка комментариев
   loaderCommentElement.classList.add('hidden');
 
 
