@@ -20,7 +20,6 @@ const closeFormError = () => {
 
 // Функция выполняющаяся при ошибке отправки формы
 const onUploadError = () => {
-  window.console.log('bad');
 
   formError.classList.remove('hidden');
   htmlMain.appendChild(formError); //Добавляем окошко ошибки
@@ -61,7 +60,6 @@ const closeFormSuccess = () => {
 
 // Функция выполняющаяся при успешной отправке формы
 const onUploadSuccess = () => {
-  window.console.log('good');
 
   upload.closeForm();
 
