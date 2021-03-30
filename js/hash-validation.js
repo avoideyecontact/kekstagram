@@ -1,5 +1,3 @@
-import { checkStrLength } from './util.js';
-
 const fieldHashElement = document.querySelector('.text__hashtags');
 const HASH_VALIDITY = RegExp('^#[a-zA-Z0-9а-яА-ЯёЁ]{1,19}$');
 const MAX_HASHS_NUMBER = 5;
@@ -31,29 +29,6 @@ const validateHashs = () => {
   });
 }
 
-const fieldCommentElement = document.querySelector('.text__description');
-
-const MAX_COMMENT_LENGTH = 140;
-
-const valideteComment = () => {
-
-  fieldCommentElement.addEventListener('input', () => {
-
-    if ( !checkStrLength( fieldCommentElement.value, 140 ) ) {
-      fieldCommentElement.setCustomValidity('Комментарий не должен превышать ' + MAX_COMMENT_LENGTH + ' символов.');
-      fieldCommentElement.classList.add('error-validation');
-    }
-    else {
-      fieldCommentElement.classList.remove('error-validation');
-    }
-
-  });
-
-  fieldCommentElement.reportValidity();
-
-};
-
 validateHashs();
-valideteComment();
 
-export { validateHashs, fieldHashElement };
+export { fieldHashElement }

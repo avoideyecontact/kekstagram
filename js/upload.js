@@ -2,14 +2,22 @@ import { sliderElement, sliderBar } from './effect.js';
 import { formElement } from './form.js';
 import { imgPreview } from './scale.js';
 import { fieldHashElement } from './hash-validation.js';
+<<<<<<< HEAD
 
 const KEY_CODE_ESC = 27;
 
+=======
+>>>>>>> 8ed2a55fbefb0923fde7b8ba537511d3b986298f
 const uploadFile = document.querySelector('#upload-file');
 const editForm = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 
 const commentElement = document.querySelector('.text__description')
+<<<<<<< HEAD
+=======
+
+const KEY_CODE_ESC = 27;
+>>>>>>> 8ed2a55fbefb0923fde7b8ba537511d3b986298f
 
 const uploadCancel = document.querySelector('#upload-cancel');
 

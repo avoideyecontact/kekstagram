@@ -19,7 +19,7 @@ noUiSlider.create(sliderElement, {
 
 const effectsElement = document.querySelector('.effects__list');
 
-const onElementChange = function(evt) {
+const onElementChange = (evt) => {
   if (evt.target.matches('input[type="radio"]')) {
     imgEffect = evt.target.value;
     scale.imgPreview.className = 'img-upload__preview';

@@ -41,7 +41,6 @@ const showBigPicture = () => {
   document.body.classList.add('modal-open');
   fullImgElement.classList.remove('hidden');
   document.addEventListener('keydown', onEscKeyDown);
-
 };
 
 const fillBigPucture = (object) => {
@@ -56,7 +55,6 @@ const fillBigPucture = (object) => {
     return createComment(currentValue)
   });
 
-  //Загрузка комментариев
   loaderCommentElement.classList.add('hidden');
 
 

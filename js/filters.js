@@ -6,6 +6,8 @@ const imgFilterElement = document.querySelector('.img-filters');
 const imgFilterFormElement = document.querySelector('.img-filters__form');
 const filterButtons = imgFilterFormElement.querySelectorAll('.img-filters__button');
 
+const RANDOM_PICS_NUMBER = 10;
+
 const onFilterFormClick = (evt) => {
 
   filterButtons.forEach((button) => {
@@ -19,13 +21,10 @@ const onFilterFormClick = (evt) => {
 
 imgFilterFormElement.addEventListener('click', onFilterFormClick);
 
-
-// Показать блок с филтром
 const showImgFilterElement = () => {
   imgFilterElement.classList.remove('img-filters--inactive');
 }
 
-//Случайный список элементов
 const getRandomElements = (array) => {
 
   let results = [];
@@ -50,24 +49,35 @@ const getQuantityComents = (a, b) => {
   return 0;
 }
 
-//Обработчик фильтров
 const onFilterButtonClick = (photos, createPhotos) => {
 
   const uniqueSet = new Set(photos);
   const arrayOfSet = [...uniqueSet];
 
   imgFilterFormElement.addEventListener('click', (evt) => {
-    if(evt.target.id === 'filter-random'){
+    if (evt.target.id === 'filter-random') {
       const elementsRandom = getRandomElements(arrayOfSet);
-      createPhotos(elementsRandom)
-    } else if (evt.target.id === 'filter-discussed') {
+
+      const pictures = document.querySelector('main').querySelectorAll('.picture');
+      pictures.forEach((currentValue) => {currentValue.remove()})
+
+      createPhotos(elementsRandom);
+    }
+    else if (evt.target.id === 'filter-discussed') {
       const commentsLow = arrayOfSet.slice().sort(getQuantityComents);
+
+      const pictures = document.querySelector('main').querySelectorAll('.picture');
+      pictures.forEach((currentValue) => {currentValue.remove()})
+
       createPhotos(commentsLow);
-    } else if (evt.target.id === 'filter-default') {
-      createPhotos(arrayOfSet)
+    }
+    else if (evt.target.id === 'filter-default') {
+      const pictures = document.querySelector('main').querySelectorAll('.picture');
+      pictures.forEach((currentValue) => {currentValue.remove()})
+
+      createPhotos(arrayOfSet);
     }
   })
 }
-
 
 export {showImgFilterElement, onFilterButtonClick}
