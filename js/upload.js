@@ -3,7 +3,6 @@ import { formElement } from './form.js';
 import { imgPreview } from './scale.js';
 import { fieldHashElement } from './hash-validation.js';
 
-
 const KEY_CODE_ESC = 27;
 
 const uploadFile = document.querySelector('#upload-file');

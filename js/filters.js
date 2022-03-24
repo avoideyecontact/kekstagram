@@ -1,10 +1,11 @@
 import { getRandomInt } from './util.js';
 
+
+const RANDOM_PICS_NUMBER = 10;
+
 const imgFilterElement = document.querySelector('.img-filters');
 const imgFilterFormElement = document.querySelector('.img-filters__form');
 const filterButtons = imgFilterFormElement.querySelectorAll('.img-filters__button');
-
-const RANDOM_PICS_NUMBER = 10;
 
 const onFilterFormClick = (evt) => {
 
